@@ -5,6 +5,8 @@ export async function POST(req) {
   try {
     const { preferences } = await req.json(); // Extract user preferences
 
+    console.log(preferences)
+    
     if (!preferences) {
       return NextResponse.json({ error: "Missing user preferences" }, { status: 400 });
     }

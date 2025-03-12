@@ -1,5 +1,5 @@
 const db = require("../db/dbConfig");
-const { generateEmbedding } = require("../lib/openai");
+const { generateEmbedding } = require("../lib/googleAi");
 
 const findRecommendations = async (userPreferences) => {
   try {
@@ -15,6 +15,7 @@ const findRecommendations = async (userPreferences) => {
 
     return await db.any(sql, [embedding]);
   } catch (error) {
+    console.error('Error finding recommendations:', error.message);
     return [];
   }
 };
